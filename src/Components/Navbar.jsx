@@ -1,8 +1,32 @@
+import { useGSAP } from '@gsap/react';
+import gsap from "gsap";
+import { Timeline } from 'gsap/gsap-core';
 import React, { useEffect, useRef } from 'react'
 
 const Navbar = () => {
 
   const navbar = useRef()
+
+  useGSAP(()=>{
+    let nav = new Timeline()
+    nav.from('#logo',{
+      y:-30,
+      duration:0.6,
+      opacity:0
+    })
+    nav.from('#nav-links li',{
+      opacity:0,
+      y:-20,
+      duration:.6,
+      stagger:0.1
+    })
+    nav.from('#nav-btn button',{
+      opacity:0,
+      x:30,
+      duration:.4,
+      stagger:0.1
+    })
+  })
 
   // ---> Navbar scroll hide/show
   var lastScrollTop;
@@ -27,19 +51,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div ref={navbar} className="w-full transition-all flex justify-between px-20 items-end fixed top-0 py-3">
-      <div className="flex items-end gap-3">
+    <div ref={navbar} className="z-50 w-full transition-all flex justify-between px-20 items-end fixed top-0 py-3">
+      <div id='logo' className="flex items-end gap-3">
         <img className='w-10 h-10' src="/logo.png" alt="" />
         <span className='text-3xl capitalize text-orange-500 font-bold'>FashionVista</span>
       </div>
-      <ul className='flex gap-5'>
+      <ul id='nav-links' className='flex gap-5'>
         {["home", "about-us", "Shop", "Blog"].map((elem, index) => {
-          return <li key={index} className='text-lg font-bold capitalize text-orange-500 transition-all cursor-pointer hover:-translate-y-1 hover:text-orange-600' >{elem}</li>
+          return <li key={index} className='text-lg font-bold capitalize text-orange-500 cursor-pointer hover:text-orange-600' >{elem}</li>
         })}
       </ul>
-      <div className='flex gap-5'>
+      <div id='nav-btn' className='flex gap-5'>
         {["search", "cart"].map((elem, index) => {
-          return <button key={index} className='bg-orange-500 text-white px-5 capitalize py-2 rounded-full text-base font-bold transition-all hover:scale-105 hover:bg-orange-600'>{elem}</button>
+          return <button key={index} className='bg-orange-500 text-white px-5 capitalize py-2 rounded-full text-base font-bold  hover:bg-orange-600'>{elem}</button>
         })}
       </div>
     </div>
