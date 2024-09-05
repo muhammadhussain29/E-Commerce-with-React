@@ -46,36 +46,53 @@ const Hero = () => {
     })
   });
 
-// Animation For Forward/Backward Buttons
-  let buttonAnimation = (currentIndex, nextIndex)=>{
+  const borderRadiusStyles = [
+    "24% 76% 24% 76% / 77% 23% 80% 20%",
+    "77% 23% 80% 20% / 24% 76% 24% 76%",
+    "24% 76% 24% 76% / 77% 23% 80% 20%",
+    "77% 23% 80% 20% / 24% 76% 24% 76%",
+  ];
+
+  // Animation For Forward/Backward Buttons
+  let buttonAnimation = (currentIndex, nextIndex) => {
     console.log(currentIndex);
     console.log(nextIndex);
-    
+
     const slideGo = slides[currentIndex]
     const slideCome = slides[nextIndex]
-    
+
+    const randomBorderRadius = borderRadiusStyles[nextIndex % borderRadiusStyles.length];
+
     let btnAnimationTL = gsap.timeline();
-    
+
     // Slide Going
     btnAnimationTL.to(slideGo.current.querySelector('img'), {
       opacity: 0,
       x: 60,
-      duration:0.2
+      duration: 0.2
     });
     btnAnimationTL.to(slideGo.current.querySelector('button'), {
       opacity: 0,
-      x: -60,  
-      duration:0.2
+      x: -60,
+      duration: 0.2
     });
     btnAnimationTL.to(slideGo.current.querySelectorAll('h2 span, h4 span, p span'), {
       opacity: 0,
       y: 60,
       stagger: 0.1,
-      duration:0.3
+      duration: 0.3
     });
     btnAnimationTL.to(slideGo.current, {
       display: 'none',
       duration: 0,
+    });
+
+    // Shape Animation
+    gsap.to("#shape", {
+      delay:0.6,
+      borderRadius: randomBorderRadius,
+      duration: 1, 
+      ease: "power2.out",
     });
 
     // Next Slide
@@ -87,21 +104,21 @@ const Hero = () => {
       opacity: 0,
       y: 60,
       stagger: 0.2,
-      duration:0.6
+      duration: 0.6
     });
     btnAnimationTL.from(slideCome.current.querySelector('button'), {
       opacity: 0,
       x: -60,
-      duration:0.3
+      duration: 0.3
     });
     btnAnimationTL.from(slideCome.current.querySelector('img'), {
       opacity: 0,
       x: 60,
-      duration:0.4,
+      duration: 0.4,
       onComplete: () => {
         // Reset styles after animation for slideGo using gsap.set
         const resetElements = slideGo.current.querySelectorAll('h2 span, h4 span, p span');
-      
+
         // Reset text elements
         resetElements.forEach((element) => {
           gsap.set(element, {
@@ -109,22 +126,22 @@ const Hero = () => {
             y: 0, // GSAP handles translateY as 'y' property
           });
         });
-      
+
         // Reset image element
         gsap.set(slideGo.current.querySelector('img'), {
           opacity: 1,
           x: 0, // Reset to original state
         });
-      
+
         // Reset button element
         gsap.set(slideGo.current.querySelector('button'), {
           opacity: 1,
           x: 0, // Reset to original state
         });
-      
+
         console.log("Reset complete");
       }
-    });  
+    });
   } // Animation For Forward/Backward Buttons Ends
 
   // Function to move to the next slide
@@ -141,6 +158,15 @@ const Hero = () => {
     setPosition(prevIndex);
   };
 
+  // let AutoSliding = ()=>{
+  //   let interval = setInterval(nextSlide, 8000); // Change slide every 5 seconds
+  //   return () => clearInterval(interval); // Clean up interval on component unmount
+  // }
+
+  // // Set up automatic slide transition
+  // useEffect(() => {
+  //   AutoSliding()
+  // }, [position]);
 
   // let data = [
   //   {
@@ -175,14 +201,15 @@ const Hero = () => {
       <button onClick={prevSlide} className='absolute top-1/2 left-6 z-50 rounded-full bg-orange-500/50 hover:bg-orange-500/80 h-11 w-11 text-xl justify-center text-center items-center flex'>{"<"}</button>
       <button onClick={nextSlide} className='absolute top-1/2 right-6 z-50 rounded-full bg-orange-500/50 hover:bg-orange-500/80 h-11 w-11 text-xl justify-center text-center items-center flex'>{">"}</button>
 
+      <div id='shape' className=''></div>
 
-      <HeroContent ref={slide1} heroImg={heroImg1} />
-      <HeroContent ref={slide2} heroImg={heroImg2} />
-      <HeroContent ref={slide3} heroImg={heroImg3} />
-      <HeroContent ref={slide4} heroImg={heroImg4} />
+      <HeroContent ref={slide1} heroImg={heroImg1}/>
+      <HeroContent ref={slide2} heroImg={heroImg2}/>
+      <HeroContent ref={slide3} heroImg={heroImg3}/>
+      <HeroContent ref={slide4} heroImg={heroImg4}/>
 
 
-      <div id='slider-dots' className="flex mt-5 gap-1 position absolute bottom-10 right-1/2 translate-x-1/2">
+      <div id='slider-dots' className="flex mt-5 gap-1 position absolute bottom-10 right-1/2 translate-x-1/2 z-20">
         <div className="rounded-full p-2 bg-orange-500"></div>
         <div className="rounded-full p-2 bg-orange-500/50"></div>
         <div className="rounded-full p-2 bg-orange-500/50"></div>
