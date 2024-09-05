@@ -11,31 +11,28 @@ import { Timeline } from 'gsap/gsap-core'
 const Hero = () => {
 
   // Reference to Different Slides
-  const slide1 = useRef()
-  const slide2 = useRef()
-  const slide3 = useRef()
-  const slide4 = useRef()
-
-  const slides = [slide1, slide2, slide3, slide4]; // Array of slide refs
-  const [position, setPosition] = useState(0); // Current slide index
+  // const slide1 = useRef()
+  // const slide2 = useRef()
+  // const slide3 = useRef()
+  // const slide4 = useRef()
 
   // Initial Animation
   useGSAP(() => {
     let initialAnimation = new Timeline()
-    initialAnimation.to(slide1.current, {
+    initialAnimation.to(slideRefs[0].current, {
       display: 'flex',
       duration: 0
     })
-    initialAnimation.from(slide1.current.querySelectorAll('h2 span, h4 span, p span'), {
+    initialAnimation.from(slideRefs[0].current.querySelectorAll('h2 span, h4 span, p span'), {
       opacity: 0,
       y: 60,
       stagger: 0.2,
     })
-    initialAnimation.from(slide1.current.querySelector('button'), {
+    initialAnimation.from(slideRefs[0].current.querySelector('button'), {
       opacity: 0,
       x: -60,
     })
-    initialAnimation.from(slide1.current.querySelector('img'), {
+    initialAnimation.from(slideRefs[0].current.querySelector('img'), {
       opacity: 0,
       x: 60,
     })
@@ -158,42 +155,37 @@ const Hero = () => {
     setPosition(prevIndex);
   };
 
-  // let AutoSliding = ()=>{
-  //   let interval = setInterval(nextSlide, 8000); // Change slide every 5 seconds
-  //   return () => clearInterval(interval); // Clean up interval on component unmount
-  // }
+  const slideRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const heroImgs = [heroImg1, heroImg2, heroImg3, heroImg4];
+  const slides = [slideRefs[0], slideRefs[1], slideRefs[2], slideRefs[3]]; // Array of slide refs
+  const [position, setPosition] = useState(0); // Current slide index
 
-  // // Set up automatic slide transition
-  // useEffect(() => {
-  //   AutoSliding()
-  // }, [position]);
-
-  // let data = [
-  //   {
-  //     mainHeading : "heading1",
-  //     para : "Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum! ipsum dolor sit amet consectetur adipisicing elit. Nemo id consequatur cupiditate ad a in consequuntur sit vero commodi debitis.",
-  //     subText : "Lorem ipsum dolor sit amet.",
-  //     img : "../Media/hero-2.png"
-  //   },
-  //   {
-  //     mainHeading : "heading2",
-  //     para : "Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum! ipsum dolor sit amet consectetur adipisicing elit. Nemo id consequatur cupiditate ad a in consequuntur sit vero commodi debitis.",
-  //     subText : "Lorem ipsum dolor sit amet.",
-  //     img : "../Media/hero-2.png"
-  //   },
-  //   {
-  //     mainHeading : "heading3",
-  //     para : "Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum! ipsum dolor sit amet consectetur adipisicing elit. Nemo id consequatur cupiditate ad a in consequuntur sit vero commodi debitis.",
-  //     subText : "Lorem ipsum dolor sit amet.",
-  //     img : "../Media/hero-2.png"
-  //   },
-  //   {
-  //     mainHeading : "heading4",
-  //     para : "Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum! ipsum dolor sit amet consectetur adipisicing elit. Nemo id consequatur cupiditate ad a in consequuntur sit vero commodi debitis.",
-  //     subText : "Lorem ipsum dolor sit amet.",
-  //     img : "../Media/hero-2.png"
-  //   }
-  // ] 
+  let data = [
+    {
+      mainHeading : "Elevate Your Style with FashionVista",
+      subText : "Discover the Latest Trends",
+      para : "Explore our exclusive collection of the latest fashion trends that blend style with comfort. From timeless classics to bold new statements, find everything you need to express your unique style. Shop now and enjoy free shipping on orders over $50!",
+      img : "../Media/hero-2.png"
+    },
+    {
+      mainHeading : "Discover Your Style",
+      para : "Explore our curated collection of men's clothing, where classic designs meet contemporary trends. From tailored suits to casual wear, find pieces that define your personal style and make a statement wherever you go.",
+      subText : "Timeless Fashion for the Modern Man",
+      img : "../Media/hero-2.png"
+    },
+    {
+      mainHeading : "Embrace Elegance",
+      para : "Uncover a world of fashion with our stunning range of women's apparel. Whether you're searching for glamorous evening wear or everyday essentials, our selection offers elegance and comfort to match every occasion and taste.",
+      subText : "Chic and Sophisticated Styles",
+      img : "../Media/hero-2.png"
+    },
+    {
+      mainHeading : "Perfect Your Look",
+      para : "Complete your outfits with our exclusive accessories collection. From statement jewelry to stylish bags and belts, find the perfect finishing touches that add a unique flair and elevate your fashion game to the next level.",
+      subText : "Accessories That Define Your Style",
+      img : "../Media/hero-2.png"
+    }
+  ] 
 
   return (
     <div className='w-full h-screen bg-zinc-300 px-20'>
@@ -203,10 +195,23 @@ const Hero = () => {
 
       <div id='shape' className=''></div>
 
-      <HeroContent ref={slide1} heroImg={heroImg1}/>
-      <HeroContent ref={slide2} heroImg={heroImg2}/>
-      <HeroContent ref={slide3} heroImg={heroImg3}/>
-      <HeroContent ref={slide4} heroImg={heroImg4}/>
+      {data.map((elem, index) => (
+        <HeroContent
+          key={index}
+          ref={slideRefs[index]}
+          heroImg={heroImgs[index]}
+          data={elem}
+        />
+      ))}
+
+      {/* {data.map((elem,index)=>{
+        return <HeroContent ref={`slide${index+1}`} heroImg={`heroImg${index+1}`} data={elem} />
+      })} */}
+
+      {/* <HeroContent ref={slide1} heroImg={heroImg1} data={data} />
+      <HeroContent ref={slide2} heroImg={heroImg2} data={data} />
+      <HeroContent ref={slide3} heroImg={heroImg3} data={data} />
+      <HeroContent ref={slide4} heroImg={heroImg4} data={data} /> */}
 
 
       <div id='slider-dots' className="flex mt-5 gap-1 position absolute bottom-10 right-1/2 translate-x-1/2 z-20">
