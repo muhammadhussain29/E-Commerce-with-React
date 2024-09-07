@@ -18,7 +18,7 @@ const Hero = () => {
       duration: 0
     })
     initialAnimation.to("#shape", {
-      "border-radius":  "16% 84% 16% 84% / 23% 81% 19% 77%",
+      "border-radius": "16% 84% 16% 84% / 23% 81% 19% 77%",
       duration: 0
     })
     initialAnimation.from(slideRefs[0].current.querySelectorAll('h2 span, h4 span, p span'), {
@@ -26,7 +26,7 @@ const Hero = () => {
       y: 60,
       stagger: 0.2,
     })
-    initialAnimation.from('#shape',{
+    initialAnimation.from('#shape', {
       opacity: 0,
     })
     initialAnimation.from(slideRefs[0].current.querySelector('button'), {
@@ -35,13 +35,13 @@ const Hero = () => {
     })
     initialAnimation.from(slideRefs[0].current.querySelector('img'), {
       opacity: 0,
-      duration:0.6,
+      duration: 0.6,
       x: 60,
     })
     initialAnimation.from('#slider-dots div', {
       opacity: 0,
       stagger: 0.1,
-      duration:0.4,
+      duration: 0.4,
       x: 60,
     })
   });
@@ -89,9 +89,9 @@ const Hero = () => {
 
     // Shape Animation
     gsap.to("#shape", {
-      delay:0.6,
+      delay: 0.6,
       borderRadius: randomBorderRadius,
-      duration: 1, 
+      duration: 1,
       ease: "power2.out",
     });
 
@@ -165,30 +165,30 @@ const Hero = () => {
 
   let data = [
     {
-      mainHeading : "Elevate Your Style with FashionVista",
-      subText : "Discover the Latest Trends",
-      para : "Explore our exclusive collection of the latest fashion trends that blend style with comfort. From timeless classics to bold new statements, find everything you need to express your unique style. Shop now and enjoy free shipping on orders over $50!",
-      btn : "shop now"
+      mainHeading: "Elevate Your Style with FashionVista",
+      subText: "Discover the Latest Trends",
+      para: "Explore our exclusive collection of the latest fashion trends that blend style with comfort. From timeless classics to bold new statements, find everything you need to express your unique style. Shop now and enjoy free shipping on orders over $50!",
+      btn: "shop now"
     },
     {
-      mainHeading : "Discover Your Style",
-      para : "Explore our curated collection of men's clothing, where classic designs meet contemporary trends. From tailored suits to casual wear, find pieces that define your personal style and make a statement wherever you go.",
-      subText : "Timeless Fashion for the Modern Man",
-      btn : "shop for men"
+      mainHeading: "Discover Your Style",
+      para: "Explore our curated collection of men's clothing, where classic designs meet contemporary trends. From tailored suits to casual wear, find pieces that define your personal style and make a statement wherever you go.",
+      subText: "Timeless Fashion for the Modern Man",
+      btn: "shop for men"
     },
     {
-      mainHeading : "Embrace Elegance",
-      para : "Uncover a world of fashion with our stunning range of women's apparel. Whether you're searching for glamorous evening wear or everyday essentials, our selection offers elegance and comfort to match every occasion and taste.",
-      subText : "Chic and Sophisticated Styles",
-      btn : "shop for women"
+      mainHeading: "Embrace Elegance",
+      para: "Uncover a world of fashion with our stunning range of women's apparel. Whether you're searching for glamorous evening wear or everyday essentials, our selection offers elegance and comfort to match every occasion and taste.",
+      subText: "Chic and Sophisticated Styles",
+      btn: "shop for women"
     },
     {
-      mainHeading : "Perfect Your Look",
-      para : "Complete your outfits with our exclusive accessories collection. From statement jewelry to stylish bags and belts, find the perfect finishing touches that add a unique flair and elevate your fashion game to the next level.",
-      subText : "Accessories That Define Your Style",
-      btn : "view accessories"
+      mainHeading: "Perfect Your Look",
+      para: "Complete your outfits with our exclusive accessories collection. From statement jewelry to stylish bags and belts, find the perfect finishing touches that add a unique flair and elevate your fashion game to the next level.",
+      subText: "Accessories That Define Your Style",
+      btn: "view accessories"
     }
-  ] 
+  ]
 
   return (
     <div className='relative top-0 w-full md:h-screen md:pb-0 pb-20 bg-zinc-300'>
@@ -208,10 +208,9 @@ const Hero = () => {
       ))}
 
       <div id='slider-dots' className="flex mt-5 gap-1 absolute bottom-10 right-1/2 translate-x-1/2 z-20">
-        <div className="rounded-full p-2 bg-orange-500"></div>
-        <div className="rounded-full p-2 bg-orange-500/50"></div>
-        <div className="rounded-full p-2 bg-orange-500/50"></div>
-        <div className="rounded-full p-2 bg-orange-500/50"></div>
+        {data.map((_, index) => (
+          <div key={index} className={`rounded-full p-2 ${index === position ? 'bg-orange-500' : 'bg-orange-500/50'}`}></div>
+        ))}
       </div>
     </div>
   )
