@@ -1,7 +1,8 @@
 import { useGSAP } from '@gsap/react';
-import gsap from "gsap";
 import { Timeline } from 'gsap/gsap-core';
 import React, { useEffect, useRef } from 'react'
+import { IoMenu } from "react-icons/io5";
+
 
 const Navbar = () => {
 
@@ -66,7 +67,9 @@ const Navbar = () => {
           return <button key={index} className='bg-orange-500 text-white px-4 capitalize py-1 rounded-full text-base font-bold  hover:bg-orange-600'>{elem}</button>
         })}
       </div>
-      <button id="small-screen" className='md:hidden block'></button>
+      <button id="small-screen" className='md:hidden block items-end'>
+        <IoMenu className='text-orange-500 text-2xl'/>
+      </button>
     </div>
   )
 }

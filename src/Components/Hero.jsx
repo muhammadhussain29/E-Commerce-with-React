@@ -191,10 +191,10 @@ const Hero = () => {
   ] 
 
   return (
-    <div className='absolute top-0 w-full md:h-screen md:pb-0 pb-20 bg-zinc-300'>
+    <div className='relative top-0 w-full md:h-screen md:pb-0 pb-20 bg-zinc-300'>
 
-      <button onClick={prevSlide} className='absolute top-1/2 md:left-6 left-1 z-50 rounded-full bg-orange-500/50 hover:bg-orange-500/80 w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{"<"}</button>
-      <button onClick={nextSlide} className='absolute top-1/2 md:right-6 right-1 z-50 rounded-full bg-orange-500/50 hover:bg-orange-500/80 w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{">"}</button>
+      <button onClick={prevSlide} className='absolute top-1/2 md:left-6 left-1 z-50 rounded-full bg-orange-500 hover:bg-orange-700 text-white font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{"<"}</button>
+      <button onClick={nextSlide} className='absolute top-1/2 md:right-6 right-1 z-50 rounded-full bg-orange-500 hover:bg-orange-700 text-white font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{">"}</button>
 
       <div id='shape' className='md:block hidden absolute bottom-[25vh] right-[8vw] bg-orange-500 xl:w-[400px] xl:h-[400px] lg:w-[320px] lg:h-[320px] md:w-[280px] md:h-[280px]'></div>
 
