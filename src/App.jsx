@@ -11,7 +11,6 @@ const App = () => {
     <Hero/>
     <WhyUs/>
     <Stats/>
-    {/* <div className="py-10"></div> */}
     </>      
   )
 }
