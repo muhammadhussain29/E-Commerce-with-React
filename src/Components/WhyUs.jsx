@@ -18,10 +18,10 @@ const data = [
 
 const WhyUs = () => {
     return (
-        <div className='px-20 pt-20 text-white'>
+        <div className='md:mx-20 mx-7 mt-20 text-white'>
             <h2 className='text-5xl text-orange-500 capitalize font-bold text-center '>Why Chose Us</h2>
             <div className="w-40 py-0.5 mt-3 rounded-full mx-auto bg-orange-500"></div>
-            <div className="flex justify-between justify-items-stretch items-stretch flex-wrap my-14">
+            <div className="flex justify-evenly justify-items-stretch items-stretch flex-wrap my-14">
                 {data.map((elem, index) => {
                     return <WhyUsCard key={index} data={elem} />
                 })}

@@ -26,8 +26,8 @@ const data = [
 
 const stats = () => {
   return (
-    <div className=' py-10 px-20 bg-zinc-200 text-white'>
-        <div className='flex justify-between gap-20 flex-nowrap'>
+    <div className=' py-10 md:px-20 px-7 bg-zinc-200 text-white'>
+        <div className='flex justify-evenly items-stretch justify-items-stretch gap-4 flex-wrap'>
           {data.map((elem,index)=>{
             return <StatsCard key={index} data={elem}/>
           })}

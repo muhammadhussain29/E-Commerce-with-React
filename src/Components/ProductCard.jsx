@@ -15,22 +15,6 @@ const ProductCard = () => {
                 <button class="relative top-[100px] opacity-0 py-2 px-5 bg-orange-500 text-white mt-4 rounded-3xl uppercase transition">Buy Now</button>
             </div>
         </div>
-
-        // <div className='bg-zinc-200 w-72 rounded-3xl overflow-hidden'>
-        //     <img src={item} alt="" />
-        //     <div className='px-3 py-5 flex justify-between items-end'>
-        //         <div className='flex flex-col'>
-        //             <h4>Product 1</h4>
-        //             <div>
-        //                 stars
-        //             </div>
-        //         </div>
-        //         <div>
-        //             <h6>price</h6>
-        //         </div>
-        //     </div>
-        //     <button className='w-full text-base capitalize rounded-full md:px-5 md:py-2 px-3 py-2 bg-orange-500 text-white hover:bg-orange-700'>Add to Cart</button>
-        // </div>
     )
 }
 
