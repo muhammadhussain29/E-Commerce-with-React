@@ -5,3 +5,11 @@
 ::-webkit-scrollbar{
     display: none;
 }
+
+.card:hover .content{
+    top: 0%;
+}
+.card:hover .content button{
+    top: 0%;
+    opacity: 1;
+}

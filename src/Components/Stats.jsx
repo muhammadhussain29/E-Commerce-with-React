@@ -1,18 +1,6 @@
 import React from 'react'
 import StatsCard from './StatsCard';
 
-// Happy Customers Served: "Over 50,000 Satisfied Customers"
-// Highlight the number of happy customers who have shopped with you, showcasing your reliability and trustworthiness.
-
-// Products Available: "1,200+ Unique Products Listed"
-// Emphasize the variety in your catalog by displaying the total number of products available for customers to browse.
-
-// Years of Experience: "5+ Years of Fashion Excellence"
-// Show the longevity and experience of your brand in the fashion industry, which can reassure customers about your expertise.
-
-// Orders Shipped Globally: "30,000+ Orders Shipped Worldwide"
-// Indicate the global reach of your brand by showing the number of orders shipped internationally, conveying your capability to cater to a worldwide audience.
-
 const data = [
   {
     icon:"Over",
