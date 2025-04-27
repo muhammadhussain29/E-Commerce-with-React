@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Stats from './Components/Stats'
@@ -7,6 +7,7 @@ import Products from './Components/Products'
 import Testimonal from './Components/Testimonal'
 import FAQ from './Components/FAQ'
 import Footer from './Components/Footer'
+import Cart from './Components/Cart'
 
 const App = () => {
 
@@ -40,11 +41,10 @@ const App = () => {
       "answer": "You can reach out to our customer service team via the Contact Us page, by email at support@fashionvista.com, or through our live chat available during business hours."
     }
   ]
-  
-
+  const [showCart, setShowCart] = useState(false)
   return (
-    <>
-    <Navbar/>
+  <>
+    <Navbar setShowCart={setShowCart} />
     <Hero/>
     <WhyUs/>
     <Stats/>
@@ -52,6 +52,7 @@ const App = () => {
     <Testimonal/>
     <FAQ heading={"Frequently Asked, Expertly Answered"} subheading={"Everything You Need to Know About FashionVist"} faqs={faqs} />
     <Footer />
+    <Cart showCart={showCart} setShowCart={setShowCart} />
     </>      
   )
 }

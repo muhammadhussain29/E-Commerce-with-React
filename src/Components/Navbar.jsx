@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { IoMenu } from "react-icons/io5";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = (props) => {
 
   const navbar = useRef()
 
@@ -51,6 +51,10 @@ const Navbar = () => {
     window.addEventListener('scroll', navOnScroll);
   }, []);
 
+  const cart = () => {
+    props.setShowCart(true)
+}
+
   return (
     <div ref={navbar} className="z-50 w-full transition-all flex justify-between md:px-20 px-8 items-end fixed top-0 py-3">
       <div id='logo' className="flex items-end gap-2 w-1/3">
@@ -63,9 +67,8 @@ const Navbar = () => {
         })}
       </ul>
       <div id='nav-btn' className='hidden md:flex gap-4 w-1/3 justify-end'>
-        {[<FaSearch />, <FaShoppingCart />].map((elem, index) => {
-          return <button key={index} className='bg-orange-500 text-white capitalize p-3 rounded-full text-lg font-bold  hover:bg-orange-600'>{elem}</button>
-        })}
+          <button className='bg-orange-500 text-white capitalize p-3 rounded-full text-lg font-bold  hover:bg-orange-600'><FaSearch /></button>
+          <button onClick={cart} className='bg-orange-500 text-white capitalize p-3 rounded-full text-lg font-bold  hover:bg-orange-600'><FaShoppingCart /></button>
       </div>
       <button id="small-screen" className='md:hidden block items-end'>
         <IoMenu className='text-orange-500 text-2xl'/>
