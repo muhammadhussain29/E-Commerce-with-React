@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import TestimonalCard from './TestimonalCard';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const data = [
   {
@@ -59,9 +60,9 @@ const Testimonal = () => {
   };
 
   return (
-    <div className='py-10 flex flex-col justify-center bg-zinc-200'>
-    <h2 className='text-5xl text-orange-500 capitalize font-bold text-center '>What Our Customers Are Saying</h2>
-    <h5 className='text-zinc-700 capitalize text-center text-lg mt-1'>Discover why fashion lovers around the world choose FashionVista for quality, style, and exceptional service.</h5>
+    <section className="roboto text-center py-12">
+    <h3 className='md:text-4xl text-3xl capitalize font-bold text-orange-500'>What Our Customers Are Saying</h3>
+    <p className='md:text-lg text-base text-gray-600'>Discover why fashion lovers around the world choose FashionVista for quality, style, and exceptional service.</p>
     <div className='w-full h-[300px] relative overflow-hidden flex justify-center items-center mt-10 mb-5'>
       {data.map((elem, index) => (
         <TestimonalCard
@@ -72,12 +73,11 @@ const Testimonal = () => {
       ))}
 
       {/* Navigation buttons */}
-      <button onClick={goPrev} className='absolute top-1/2 md:left-6 left-1 z-50 rounded-full bg-zinc-300 hover:bg-zinc-400 text-zinc-700 font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{"<"}</button>
-      <button onClick={goNext} className='absolute top-1/2 md:right-6 right-1 z-50 rounded-full bg-zinc-300 hover:bg-zinc-400 text-zinc-700 font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'>{">"}</button>
+      <button onClick={goPrev} className='absolute top-1/2 md:left-6 left-1 z-50 rounded-full gray-bg-button font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'> <FaArrowLeft /> </button>
+      <button onClick={goNext} className='absolute top-1/2 md:right-6 right-1 z-50 rounded-full gray-bg-button font-bold w-8 md:h-11 h-8 md:w-11 md:text-xl text-base justify-center text-center items-center flex'> <FaArrowRight /> </button>
     </div>
-    {/* <button className="py-4 px-7 bg-orange-500 hover:bg-orange-700 text-white mt-10 rounded-full uppercase mx-auto ">View Catalog</button> */}
 
-    </div>
+  </section>
   );
 };
 

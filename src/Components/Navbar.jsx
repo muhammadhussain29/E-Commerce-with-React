@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react';
 import { Timeline } from 'gsap/gsap-core';
 import React, { useEffect, useRef } from 'react'
 import { IoMenu } from "react-icons/io5";
-
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <div ref={navbar} className="z-50 w-full transition-all flex justify-between md:px-20 px-8 items-end fixed top-0 py-3">
-      <div id='logo' className="flex items-end gap-2">
+      <div id='logo' className="flex items-end gap-2 w-1/3">
         <img className='lg:w-10 w-8 lg:h-10 h-8' src="/logo.png" alt="" />
         <span className='lg:text-3xl md:text-2xl text-xl self-end capitalize text-orange-500 font-bold'>FashionVista</span>
       </div>
@@ -62,9 +62,9 @@ const Navbar = () => {
           return <li key={index} className='text-base font-bold capitalize text-nowrap text-orange-500 cursor-pointer hover:text-orange-600' >{elem}</li>
         })}
       </ul>
-      <div id='nav-btn' className='hidden md:flex gap-4'>
-        {["search", "cart"].map((elem, index) => {
-          return <button key={index} className='bg-orange-500 text-white px-4 capitalize py-1 rounded-full text-base font-bold  hover:bg-orange-600'>{elem}</button>
+      <div id='nav-btn' className='hidden md:flex gap-4 w-1/3 justify-end'>
+        {[<FaSearch />, <FaShoppingCart />].map((elem, index) => {
+          return <button key={index} className='bg-orange-500 text-white capitalize p-3 rounded-full text-lg font-bold  hover:bg-orange-600'>{elem}</button>
         })}
       </div>
       <button id="small-screen" className='md:hidden block items-end'>
