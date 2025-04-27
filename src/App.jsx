@@ -5,6 +5,7 @@ import Stats from './Components/Stats'
 import WhyUs from './Components/WhyUs'
 import Products from './Components/Products'
 import Testimonal from './Components/Testimonal'
+import BlogsSection from './Components/BlogsSection'
 import FAQ from './Components/FAQ'
 import Footer from './Components/Footer'
 import Cart from './Components/Cart'
@@ -41,6 +42,35 @@ const App = () => {
       "answer": "You can reach out to our customer service team via the Contact Us page, by email at support@fashionvista.com, or through our live chat available during business hours."
     }
   ]
+
+  const blogs = [
+    {
+      title: "5 Must-Have Wardrobe Staples for 2025",
+      author: "Emma Wilson",
+      date: { day: "02", month: "APR" },
+      comments: "45",
+      excerpt: "Elevate your style with these timeless essentials every fashionista needs!",
+      image: "/blog1.jpg"
+    },
+    {
+      title: "How to Style Accessories Like a Pro",
+      author: "Liam Carter",
+      date: { day: "18", month: "MAR" },
+      comments: "27",
+      excerpt: "Master the art of accessorizing and add that perfect touch to every outfit.",
+      image: "/blog2.jpg"
+    },
+    {
+      title: "Top 10 Summer Trends You Can't Miss",
+      author: "Sophia Bennett",
+      date: { day: "10", month: "MAY" },
+      comments: "62",
+      excerpt: "Stay ahead of the curve with the hottest summer fashion trends of the season.",
+      image: "/blog3.jpg"
+    }
+  ]
+  
+
   const [showCart, setShowCart] = useState(false)
   return (
   <>
@@ -49,8 +79,9 @@ const App = () => {
     <WhyUs/>
     <Stats/>
     <Products/>
+    <BlogsSection heading={"Stay In Style"} subheading={"Discover Fashion Stories, Tips, and Trends."} blogs={blogs.slice(0,3)}/>
     <Testimonal/>
-    <FAQ heading={"Frequently Asked, Expertly Answered"} subheading={"Everything You Need to Know About FashionVist"} faqs={faqs} />
+    <FAQ heading={"Frequently Asked, Expertly Answered"} subheading={"Everything You Need to Know About FashionVista"} faqs={faqs} />
     <Footer />
     <Cart showCart={showCart} setShowCart={setShowCart} />
     </>      
