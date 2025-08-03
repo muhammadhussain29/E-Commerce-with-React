@@ -50,7 +50,7 @@ const App = () => {
       date: { day: "02", month: "APR" },
       comments: "45",
       excerpt: "Elevate your style with these timeless essentials every fashionista needs!",
-      image: "/blog1.jpg"
+      image: "blog1.jpg"
     },
     {
       title: "How to Style Accessories Like a Pro",
@@ -58,7 +58,7 @@ const App = () => {
       date: { day: "18", month: "MAR" },
       comments: "27",
       excerpt: "Master the art of accessorizing and add that perfect touch to every outfit.",
-      image: "/blog2.jpg"
+      image: "blog2.jpg"
     },
     {
       title: "Top 10 Summer Trends You Can't Miss",
@@ -66,7 +66,7 @@ const App = () => {
       date: { day: "10", month: "MAY" },
       comments: "62",
       excerpt: "Stay ahead of the curve with the hottest summer fashion trends of the season.",
-      image: "/blog3.jpg"
+      image: "blog3.jpg"
     }
   ]
   
