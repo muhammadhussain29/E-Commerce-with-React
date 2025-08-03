@@ -57,8 +57,7 @@ fashionvista/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/muhammadhussain29/FashionVista.git
-   cd FashionVista
+   git clone https://github.com/muhammadhussain29/E-Commerce-with-React.git
    ```
 
 2. **Install dependencies**
