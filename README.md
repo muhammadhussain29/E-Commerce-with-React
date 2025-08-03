@@ -2,6 +2,11 @@
 
 **FashionVista** is a modern and fully responsive e-commerce landing page built with **React**, **Vite**, **Tailwind CSS**, and **GSAP**. It showcases stylish fashion products with engaging animations, clean UI, and a smooth user experience. This project emphasizes frontend design and animation to deliver a visually appealing, user-friendly interface suitable for a fashion brand or online store.
 
+
+## 🧑‍💻 Live Preview
+
+> [Check Live Demo](https://muhammadhussain29.github.io/E-Commerce-with-React/) 
+
 ---
 
 ## 🚀 Features
