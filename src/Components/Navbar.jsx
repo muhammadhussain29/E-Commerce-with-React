@@ -63,7 +63,7 @@ const Navbar = (props) => {
   }, []);
 
   return (
-    <nav ref={navbar} className="z-50 w-full transition-all flex justify-between md:px-20 sm:px-8 px-4 items-end fixed top-0 py-3">
+    <nav ref={navbar} className="roboto z-50 w-full transition-all flex justify-between md:px-20 sm:px-8 px-4 items-end fixed top-0 py-3">
       {/* Logo */}
       <div id='logo' className="flex items-end md:gap-2 gap-1">
         <img className='lg:w-10 w-8 lg:h-10 h-8' src="/logo.png" alt="FashionVista Logo" />

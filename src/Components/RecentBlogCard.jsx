@@ -2,7 +2,7 @@ import React from "react";
 
 const RecentBlogCard = ({ elem }) => {
   return (
-    <div className="mx-auto mt-5 px-4 w-[30%]">
+    <div className="mx-auto mt-5 px-4 md:w-[30%] w-full">
       <div className="max-w-2xl mx-auto">
         <div className="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
           
